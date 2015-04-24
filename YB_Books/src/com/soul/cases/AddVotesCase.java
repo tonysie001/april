@@ -13,13 +13,14 @@ public class AddVotesCase {
 		System.out.println("======进入testAddVotes()方法=======");
 		
 		driver.findElement(By.xpath(".//*[@id='infori']/h1/input[1]")).click();
+									
 		driver.findElement(By.linkText("页面管理")).click();
 		Thread.sleep(2000);
 		driver.findElement(
 				By.xpath(".//*[@id='bookManagefream']/div[2]/div[1]/section/div/ul/li[6]"))
 				.click();
 		// 循环添加N个默认模板
-		// Thread.sleep(3000);
+		 Thread.sleep(3000);
 		for (int i = 0; i < 3; i++) {
 			driver.findElement(By.linkText("添加页面")).click();
 			driver.findElement(
@@ -27,8 +28,10 @@ public class AddVotesCase {
 					.click();
 		}
 		Thread.sleep(500);
+		//制作书页按钮
 		driver.findElement(By.xpath(".//*[@id='topBar']/div/ul/li[1]/a"))
 				.click();
+		Thread.sleep(500);
 	}
 
 	// 制作提交投票页
@@ -36,8 +39,9 @@ public class AddVotesCase {
 	public void testCreateVote(WebDriver driver) throws Exception {
 				
 		System.out.println("======进入testCreateVote()方法=======");
-		
-		driver.findElement(By.xpath(".//*[@id='summaryNav']/a")).click();
+		Thread.sleep(500);
+//		driver.findElement(By.xpath(".//*[@id='summaryNav']/a")).click();
+		driver.findElement(By.linkText("我的书页")).click();
 		// 循环2次增加投票页面
 		for (int i = 1; i < 4; i++) {
 			Thread.sleep(500);
@@ -71,9 +75,24 @@ public class AddVotesCase {
 					.click();
 			driver.findElement(By.className("sure")).click();
 			Thread.sleep(1000);
-			driver.findElement(By.cssSelector(".btnCss03.pageSubmit")).click();
-			driver.findElement(By.cssSelector(".aui_state_highlight")).click();// 提交完成
+//			driver.findElement(By.cssSelector(".btnCss03.pageSubmit")).click();
+//			driver.findElement(By.cssSelector(".aui_state_highlight")).click();// 提交完成
 			Thread.sleep(1000);
+			
+			
+			
+			
+			  driver.findElement(By.cssSelector("input.btnCss03.pageSave")).click();
+				Thread.sleep(1000);
+			  driver.findElement(By.cssSelector("#pageType_chzn > a.chzn-single > div > b")).click();
+				Thread.sleep(1000);
+			  driver.findElement(By.id("pageType_chzn_o_11")).click();
+				Thread.sleep(1000);
+			  driver.findElement(By.xpath(".//*[@id='itemContainer']/li["+i+"]/input")).click();
+				Thread.sleep(1000);
+//			  driver.findElement(By.xpath("//input[@value='提交']")).click();
+			  driver.findElement(By.cssSelector("button.aui_state_highlight")).click();
+				Thread.sleep(1000);
 			// div[@id='voteSl']div[2]/div/input
 		}
 

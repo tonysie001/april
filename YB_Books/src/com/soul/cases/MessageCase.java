@@ -13,7 +13,7 @@ public class MessageCase {
 	// 给小伙伴留言
 	@Test
 	public void testCreateMessage(WebDriver driver, String username,
-			List<String[][]> list) throws Exception {
+			List<String[][]> list,String classname) throws Exception {
 
 		System.out.println("======进入testCreateMessage()方法=======");
 
@@ -71,6 +71,25 @@ public class MessageCase {
 					driver.findElement(By.id("addCommentBut")).click();
 
 					System.out.println("我要留言");
+				}else{
+					driver.findElement(By.id("groupBtn")).click();
+					Thread.sleep(3000);
+					driver.findElement(By.linkText(classname)).click();
+
+					Thread.sleep(2000);
+					driver.findElement(By.cssSelector("input.onbtnCss03"))
+							.click();
+					Thread.sleep(2000);
+					driver.findElement(By.id("comment")).click();
+					Thread.sleep(2000);
+					driver.findElement(By.id("comment")).clear();
+					driver.findElement(By.id("comment")).sendKeys(
+							yb.getMessage());
+					Thread.sleep(2000);
+					driver.findElement(By.id("addCommentBut")).click();
+
+					System.out.println("我要留言");
+					
 				}
 				driver.findElement(By.id("groupBtn")).click();
 				Thread.sleep(3000);
