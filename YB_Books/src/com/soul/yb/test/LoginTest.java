@@ -82,37 +82,7 @@ public class LoginTest {
 		// 隐式等待
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		// 调用打开浏览器方法
-		browser.beforeMethod(driver);
-
-		// 得到班长名字
-//		for (int i = 0; i < loginList.size(); i++) {
-//			Login login = new Login();
-//			String arr[][] = loginList.get(i);
-//			//遍历二维数组
-//			for (int j = 1; j < arr.length; j++) {
-//				String[] arr1 = arr[j];					
-//				login.setId(Integer.parseInt(arr[j][0]));
-//				login.setUsername(arr[j][1]);
-//				login.setPassword(arr[j][2]);
-//				login.setCode(arr[j][3]);
-//				login.setName(arr[j][4]);
-//					
-//					log.testLogin(driver, login);
-////					classname = log.testLoginName(driver);
-//					// 注销方法
-//					log.testLogout(driver);
-//					break;
-//			}}
-		
-		
-		
-		
-		
-		
-		
-//		for (YBEntity yb : list) {
-//		
-//		}
+		browser.beforeMethod(driver);	
 
 		// 判断班长登录
 		for (int i = 0; i < list.size(); i++) {
@@ -159,10 +129,7 @@ public class LoginTest {
 		}
 		
 	
-		
-//		for (Login yb : list) {
-//			
-//		}
+
 
 		System.out.println("===========退出for循环=============");
 
@@ -203,14 +170,6 @@ public class LoginTest {
 			
 			
 			
-			
-
-//			for (Iterator item = list.iterator(); item.hasNext();) {
-//				Login yb = (Login) item.next();
-//				System.out.print(yb.getName());
-//				
-//			}
-
 		
 			// 循环excel表格值
 			
@@ -260,7 +219,7 @@ public class LoginTest {
 					// 给小伙伴留言方法
 					System.out.println("main() username = " + username);
 //					System.out.println("list ===== " + list.size());
-					messageCase.testCreateMessage(driver, username, list);
+					messageCase.testCreateMessage(driver, username, list,classname);
 
 					// 调用此刻想说方法
 					sayCase.testCreateSay(driver, yb);
@@ -277,29 +236,8 @@ public class LoginTest {
 				}
 			}
 			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-//			for (Login yb : list) {
-//				System.out.println(yb.getUsername());
-//				
-//
-//			}
+					
+		
 			System.out.println("这是第三个循环 = ");
 	
 		
@@ -335,22 +273,6 @@ public class LoginTest {
 					
 				}
 				}
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-		
-//		for (Login yb : list) {
-//}
-			
 			
 			
 			
