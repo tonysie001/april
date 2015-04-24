@@ -236,7 +236,7 @@ public class MyPageCase {
 				.tagName("input"));
 		Thread.sleep(3000);
 		System.out.println("  size =" + checkboxMessage.size());
-		for (int i = 0; i < 4; i++) {
+		for (int i = 0; i <1; i++) {
 			checkboxMessage.get(i).click();
 			Thread.sleep(500);
 		}

@@ -1,12 +1,11 @@
 package com.soul.cases;
 
-import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Test;
 
 import com.soul.entity.YBEntity;
+
 
 public class CreateVoteCase {
 

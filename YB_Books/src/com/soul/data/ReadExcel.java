@@ -1,194 +1,82 @@
 package com.soul.data;
 
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.List;
+import java.io.File;  
+import java.io.IOException;  
+import java.util.ArrayList;  
+import java.util.List;  
+  
+import jxl.Cell;  
+import jxl.Sheet;  
+import jxl.Workbook;  
+import jxl.read.biff.BiffException;  
 
-import org.apache.poi.hssf.usermodel.HSSFCell;
-import org.apache.poi.hssf.usermodel.HSSFRow;
-import org.apache.poi.hssf.usermodel.HSSFSheet;
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-import org.apache.poi.xssf.usermodel.XSSFCell;
-import org.apache.poi.xssf.usermodel.XSSFRow;
-import org.apache.poi.xssf.usermodel.XSSFSheet;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+public class ReadExcel {  
+  
+    /** 
+     * 传递excel文件对象读取文件方法 
+     * @param file 
+     *          excel文件对象 
+     * @return 
+     *          返回List<String[][]> 
+     * @throws BiffException 
+     * @throws IOException 
+     */  
+	public List<String[][]> readExcel(File file) throws BiffException, IOException{  
+//      创建方法返回List集合对象  
+        List<String[][]> contents = new ArrayList<String[][]>();  
+//      创建excel文件的工作簿对象book  
+        Workbook book = Workbook.getWorkbook(file);  
+//      获取excel文件工作簿的工作表数量sheets  
+        Sheet[] sheets = book.getSheets();  
+//      声明每个工作表存储的二维数组对象  
+        String[][] row_contents = null;  
+//      逐个工作表开始读取  
+        for(int sheet_index=0;sheet_index<sheets.length;sheet_index++) {  
+//          测试语句  
+//            System.out.println("当前为"+sheet_index+"个工作簿！");  
+//          创建工作表对象sheet  
+            Sheet sheet = sheets[sheet_index];  
+//          获取excel当前工作表的总行数  
+            int rows = sheet.getRows();  
+  
+//          获取excel当前工作表的总列数  
+             int columns = sheet.getColumns();  
+//          测试语句  
+//            System.out.println("当前工作簿一共有"+rows+"行、"+columns+"列");  
+//          创建当前工作表的存储二维数组  
+            row_contents = new String[rows][columns];  
+//          循环将当前工作簿内容保存到对象中  
+//          循环行  
+            for(int row_index=0;row_index<rows;row_index++) {  
+//              循环列  
+                String[] column_contents = new String[columns];  
+                 for(int column_index=0;column_index<columns;column_index++) {  
+//                  获取当前工作表.row_index,column_index单元格的cell对象  
+                    Cell cell = sheet.getCell(column_index,row_index);  
+//                  获取内容值  
+                    column_contents[column_index] = cell.getContents();  
+                }  
+//              当前sheet,当前row的所有column,存放到row_contents二维数组的row_index位置  
+                row_contents[row_index] = column_contents;  
+            }  
+           /** 
+             * 读取测试输出代码片 
+             */  
+            //-----------------------------------------------------------------------  
+            for(int j=0;j<row_contents.length;j++) {  
+                for(int k=0;k<row_contents[j].length;k++){  
+//                    System.out.print(row_contents[j][k]+"\t");  
+                }  
+//                System.out.println();  
+            }  
+//            System.out.println("---------------------");  
+            //-----------------------------------------------------------------------  
+//          集合收集数据  
+            contents.add(row_contents);  
+        }  
+//      返回  
+        return contents;  
+    }
 
-import com.soul.entity.YBEntity;
-
-public class ReadExcel {
-
-	/**
-	 * read the Excel file
-	 * 
-	 * @param path
-	 *            the path of the Excel file
-	 * @return
-	 * @throws IOException
-	 */
-	public List<YBEntity> readExcel(String path) throws IOException {
-		if (path == null || Common.EMPTY.equals(path)) {
-			return null;
-		} else {
-			String postfix = Util.getPostfix(path);
-			if (!Common.EMPTY.equals(postfix)) {
-				if (Common.OFFICE_EXCEL_2003_POSTFIX.equals(postfix)) {
-					return readXls(path);
-				} else if (Common.OFFICE_EXCEL_2010_POSTFIX.equals(postfix)) {
-					return readXlsx(path);
-				}
-			} else {
-				System.out.println(path + Common.NOT_EXCEL_FILE);
-			}
-		}
-		return null;
-	}
-
-	/**
-	 * Read the Excel 2010
-	 * 
-	 * @param path
-	 *            the path of the excel file
-	 * @return
-	 * @throws IOException
-	 */
-	public List<YBEntity> readXlsx(String path) throws IOException {
-		System.out.println(Common.PROCESSING + path);
-		InputStream is = new FileInputStream(path);
-		XSSFWorkbook xssfWorkbook = new XSSFWorkbook(is);
-		YBEntity yb = null;
-		List<YBEntity> list = new ArrayList<YBEntity>();
-		// Read the Sheet
-		for (int numSheet = 0; numSheet < xssfWorkbook.getNumberOfSheets(); numSheet++) {
-			XSSFSheet xssfSheet = xssfWorkbook.getSheetAt(numSheet);
-			if (xssfSheet == null) {
-				continue;
-			}
-			// Read the Row
-			for (int rowNum = 1; rowNum <= xssfSheet.getLastRowNum(); rowNum++) {
-				XSSFRow xssfRow = xssfSheet.getRow(rowNum);
-				if (xssfRow != null) {
-					yb = new YBEntity();
-					XSSFCell username = xssfRow.getCell(0);
-					XSSFCell password = xssfRow.getCell(1);
-					XSSFCell code = xssfRow.getCell(2);
-					XSSFCell sayone = xssfRow.getCell(3);
-					XSSFCell saytwo = xssfRow.getCell(4);
-					XSSFCell saythree = xssfRow.getCell(5);
-					XSSFCell sayfour = xssfRow.getCell(6);
-					XSSFCell sayfive = xssfRow.getCell(7);
-					XSSFCell name = xssfRow.getCell(8);
-					XSSFCell message = xssfRow.getCell(9);
-					XSSFCell title = xssfRow.getCell(10);
-					XSSFCell option1 = xssfRow.getCell(11);
-					XSSFCell option2 = xssfRow.getCell(12);
-					XSSFCell option3 = xssfRow.getCell(13);
-
-					yb.setUsername(getValue(username));
-					yb.setPassword(getValue(password));
-					yb.setCode(getValue(code));
-					yb.setSayone(getValue(sayone));
-					yb.setSaytwo(getValue(saytwo));
-					yb.setSaythree(getValue(saythree));
-					yb.setSayfour(getValue(sayfour));
-					yb.setSayfive(getValue(sayfive));
-					yb.setName(getValue(name));
-					yb.setMessage(getValue(message));
-					yb.setTitle(getValue(title));
-					yb.setOption1(getValue(option1));
-					yb.setOption2(getValue(option2));
-					yb.setOption3(getValue(option3));
-					
-
-					list.add(yb);
-				}
-			}
-		}
-		return list;
-	}
-
-	/**
-	 * Read the Excel 2003-2007
-	 * 
-	 * @param path
-	 *            the path of the Excel
-	 * @return
-	 * @throws IOException
-	 */
-	public List<YBEntity> readXls(String path) throws IOException {
-		System.out.println(Common.PROCESSING + path);
-		InputStream is = new FileInputStream(path);
-		HSSFWorkbook hssfWorkbook = new HSSFWorkbook(is);
-		YBEntity yb = null;
-		List<YBEntity> list = new ArrayList<YBEntity>();
-		// Read the Sheet
-		for (int numSheet = 0; numSheet < hssfWorkbook.getNumberOfSheets(); numSheet++) {
-			HSSFSheet hssfSheet = hssfWorkbook.getSheetAt(numSheet);
-			if (hssfSheet == null) {
-				continue;
-			}
-			// Read the Row
-			for (int rowNum = 1; rowNum <= hssfSheet.getLastRowNum(); rowNum++) {
-				HSSFRow hssfRow = hssfSheet.getRow(rowNum);
-				if (hssfRow != null) {
-					yb = new YBEntity();
-					HSSFCell username = hssfRow.getCell(0);
-					HSSFCell password = hssfRow.getCell(1);
-					HSSFCell code = hssfRow.getCell(2);
-					HSSFCell sayone = hssfRow.getCell(3);
-					HSSFCell saytwo = hssfRow.getCell(4);
-					HSSFCell saythree = hssfRow.getCell(5);
-					HSSFCell sayfour = hssfRow.getCell(6);
-					HSSFCell sayfive = hssfRow.getCell(7);
-					HSSFCell name = hssfRow.getCell(8);
-					HSSFCell message = hssfRow.getCell(9);
-					HSSFCell title = hssfRow.getCell(10);
-					HSSFCell option1 = hssfRow.getCell(11);
-					HSSFCell option2 = hssfRow.getCell(12);
-					HSSFCell option3 = hssfRow.getCell(13);
-
-					yb.setUsername(getValue(username));
-					yb.setPassword(getValue(password));
-					yb.setCode(getValue(code));
-					yb.setSayone(getValue(sayone));
-					yb.setSaytwo(getValue(saytwo));
-					yb.setSaythree(getValue(saythree));
-					yb.setSayfour(getValue(sayfour));
-					yb.setSayfive(getValue(sayfive));
-					yb.setName(getValue(name));
-					yb.setMessage(getValue(message));
-					yb.setTitle(getValue(title));
-					yb.setOption1(getValue(option1));
-					yb.setOption2(getValue(option2));
-					yb.setOption3(getValue(option3));
-
-					list.add(yb);
-				}
-			}
-		}
-		return list;
-	}
-
-	@SuppressWarnings("static-access")
-	private String getValue(XSSFCell xssfRow) {
-		if (xssfRow.getCellType() == xssfRow.CELL_TYPE_BOOLEAN) {
-			return String.valueOf(xssfRow.getBooleanCellValue());
-		} else if (xssfRow.getCellType() == xssfRow.CELL_TYPE_NUMERIC) {
-			return String.valueOf(xssfRow.getNumericCellValue());
-		} else {
-			return String.valueOf(xssfRow.getStringCellValue());
-		}
-	}
-
-	@SuppressWarnings("static-access")
-	private String getValue(HSSFCell hssfCell) {
-		if (hssfCell.getCellType() == hssfCell.CELL_TYPE_BOOLEAN) {
-			return String.valueOf(hssfCell.getBooleanCellValue());
-		} else if (hssfCell.getCellType() == hssfCell.CELL_TYPE_NUMERIC) {
-			return String.valueOf(hssfCell.getNumericCellValue());
-		} else {
-			return String.valueOf(hssfCell.getStringCellValue());
-		}
-	}
-}
+	
+} 

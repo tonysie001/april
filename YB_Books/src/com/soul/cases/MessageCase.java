@@ -13,39 +13,70 @@ public class MessageCase {
 	// 给小伙伴留言
 	@Test
 	public void testCreateMessage(WebDriver driver, String username,
-			List<YBEntity> list) throws Exception {
+			List<String[][]> list) throws Exception {
 
 		System.out.println("======进入testCreateMessage()方法=======");
 
-		for (YBEntity yb : list) {
-			if (username.equals(yb.getName())) {
+		System.out.println("取得当前用户名字：username = " + username);
 
-			} else {
-				System.out.println(username != yb.getName());
-				System.out.println("if  ()  username = " + username);
-				System.out.println(" yb.getname= " + yb.getName());
-				Thread.sleep(3000);
+		int id = 0;
+
+		for (int i = 0; i < list.size(); i++) {
+			YBEntity yb = new YBEntity();
+			String arr[][] = list.get(i);
+			// 遍历二维数组
+			for (int j = 1; j < arr.length; j++) {
+				String[] arr1 = arr[j];
+				yb.setId(Integer.parseInt(arr[j][0]));
+				yb.setUsername(arr[j][1]);
+				yb.setPassword(arr[j][2]);
+				yb.setCode(arr[j][3]);
+				yb.setName(arr[j][4]);
+				yb.setMessage(arr[j][5]);
+
+				yb.setSayone(arr[j][6]);
+				yb.setSaytwo(arr[j][7]);
+				yb.setSaythree(arr[j][8]);
+				yb.setSayfour(arr[j][9]);
+				yb.setSayfive(arr[j][10]);
+
+				yb.setTitle(arr[j][11]);
+				yb.setOption1(arr[j][12]);
+				yb.setOption2(arr[j][13]);
+				yb.setOption3(arr[j][14]);
+
+				if (username.equals(yb.getName())) {
+					id = yb.getId();
+					id++;
+					System.out.println("什么都不需要做");
+				} else if (yb.getId() == id) {
+
+					System.out.println(username != yb.getName());
+					System.out.println("if  ()  username = " + username);
+					System.out.println(" login.getname= " + yb.getName());
+					driver.findElement(By.id("groupBtn")).click();
+					Thread.sleep(3000);
+					driver.findElement(By.linkText(yb.getName())).click();
+
+					Thread.sleep(2000);
+					driver.findElement(By.cssSelector("input.onbtnCss03"))
+							.click();
+					Thread.sleep(2000);
+					driver.findElement(By.id("comment")).click();
+					Thread.sleep(2000);
+					driver.findElement(By.id("comment")).clear();
+					driver.findElement(By.id("comment")).sendKeys(
+							yb.getMessage());
+					Thread.sleep(2000);
+					driver.findElement(By.id("addCommentBut")).click();
+
+					System.out.println("我要留言");
+				}
 				driver.findElement(By.id("groupBtn")).click();
 				Thread.sleep(3000);
-				driver.findElement(By.linkText(yb.getName())).click();
-
-				Thread.sleep(2000);
-				driver.findElement(By.cssSelector("input.onbtnCss03")).click();
-				Thread.sleep(2000);
-				driver.findElement(By.id("comment")).click();
-				Thread.sleep(2000);
-				driver.findElement(By.id("comment")).clear();
-				driver.findElement(By.id("comment")).sendKeys(yb.getMessage());
-				Thread.sleep(2000);
-				driver.findElement(By.id("addCommentBut")).click();
+				System.out.println("username = " + username);
+				driver.findElement(By.linkText(username)).click();
 			}
-
 		}
-		driver.findElement(By.id("groupBtn")).click();
-		Thread.sleep(3000);
-		System.out.println("username = " + username);
-		driver.findElement(By.linkText(username)).click();
-
 	}
-
 }

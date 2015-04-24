@@ -10,7 +10,7 @@ public class LoginCase {
 
 	// 登录
 	@Test
-	public void testLogin(WebDriver driver, YBEntity yb) throws Exception {
+	public void testLogin(WebDriver driver, YBEntity login) throws Exception {
 		
 
 		System.out.println("======进入testLogin()方法=======");
@@ -22,17 +22,17 @@ public class LoginCase {
 		// 输入用户名
 		driver.findElement(By.xpath("//*[@id='loginName']")).clear();
 		driver.findElement(By.xpath("//*[@id='loginName']")).sendKeys(
-				yb.getUsername());
+				login.getUsername());
 		Thread.sleep(500);
 
 		// 输入密码
 		driver.findElement(By.id("logpass")).clear();
-		driver.findElement(By.id("logpass")).sendKeys(yb.getPassword());
+		driver.findElement(By.id("logpass")).sendKeys(login.getPassword());
 		Thread.sleep(500);
 
 		// 输入验证码
 		driver.findElement(By.id("inputcode")).clear();
-		driver.findElement(By.id("inputcode")).sendKeys(yb.getCode());
+		driver.findElement(By.id("inputcode")).sendKeys(login.getCode());
 		Thread.sleep(1000);
 
 		// 点击进入

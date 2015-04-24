@@ -77,7 +77,8 @@ public class AddBookCase {
 		Thread.sleep(3000);
 		// 点击刚创建的新书册
 //		driver.findElement(By.cssSelector("img[title=\"testt\"]")).click();
-		driver.findElement(By.xpath(".//*[@id='frameContent']/div/ul[2]/li[1]/div[2]/a/img")).click();
+//		driver.findElement(By.xpath(".//*[@id='frameContent']/div/ul[2]/li[1]/div[2]/a/img")).click();
+		driver.findElement(By.xpath(".//*[@id='frameContent']/div/ul/li[1]/div[2]/a/img")).click();
 		
 	}
 

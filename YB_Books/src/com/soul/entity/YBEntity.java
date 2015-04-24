@@ -2,53 +2,46 @@ package com.soul.entity;
 
 public class YBEntity {
 
-	// 用户名
+	// 1编号
+	private int id;
+	// 2用户名
 	private String username;
-	// 密码
+	// 3密码
 	private String password;
-	// 验证码
+	// 4验证码
 	private String code;
-	// 想说问题一到五
-	private String sayone;
-	private String saytwo;
-	private String saythree;
-	private String sayfour;
-	private String sayfive;
-
-	// 姓名
+	// 5姓名
 	private String name;
 
-	// 留言
+	// 6留言
 	private String message;
 
-	// 投票
+	// 7想说问题一
+	private String sayone;
+	// 8想说问题一
+	private String saytwo;
+	// 9想说问题一
+	private String saythree;
+	// 10想说问题一
+	private String sayfour;
+	// 11想说问题一
+	private String sayfive;
+
+	// 12投票标题
 	private String title;
+	// 13选项一
 	private String option1;
+	// 14选项二
 	private String option2;
+	// 15选项三
 	private String option3;
 
-	public String getUsername() {
-		return username;
+	public String getMessage() {
+		return message;
 	}
 
-	public void setUsername(String username) {
-		this.username = username;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
-	public String getCode() {
-		return code;
-	}
-
-	public void setCode(String code) {
-		this.code = code;
+	public void setMessage(String message) {
+		this.message = message;
 	}
 
 	public String getSayone() {
@@ -91,22 +84,6 @@ public class YBEntity {
 		this.sayfive = sayfive;
 	}
 
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getMessage() {
-		return message;
-	}
-
-	public void setMessage(String message) {
-		this.message = message;
-	}
-
 	public String getTitle() {
 		return title;
 	}
@@ -139,5 +116,44 @@ public class YBEntity {
 		this.option3 = option3;
 	}
 
-	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public String getCode() {
+		return code;
+	}
+
+	public void setCode(String code) {
+		this.code = code;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
 }
