@@ -14,7 +14,7 @@ public class Common {
 	public static final String BASE_URL = "http://192.168.2.185";
 	
 	
-	public static final String CLASS_NAME = "soulTest400";
+	public static final String CLASS_NAME = "soulTest451";
 //	public static final String YB_LOGIN_PATH = FILES_PATH + "/YB_login.xls";
 //	public static final String YB_VOTE_PATH = FILES_PATH + "/YB_vote.xls";
 //	public static final String YB_SAY_PATH = FILES_PATH + "/YB_say.xls";
