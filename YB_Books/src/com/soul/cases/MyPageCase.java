@@ -24,22 +24,39 @@ public class MyPageCase {
 		Thread.sleep(3000);
 
 		// 从相册上传照片（顶部大图）
-		driver.findElement(By.cssSelector("img.upaction")).click();
-		Thread.sleep(3000);
-		driver.findElement(By.id("loaclFile")).click();
-		Thread.sleep(3000);
-		openExe();
-		Thread.sleep(3000);
-		driver.findElement(By.xpath("(//button[@type='button'])[2]")).click();
-		Thread.sleep(3000);
-		driver.findElement(By.cssSelector("button.aui_state_highlight"))
-				.click();
-		Thread.sleep(3000);
-		driver.findElement(By.cssSelector("canvas")).click();
+		try {
+			driver.findElement(By.cssSelector("img.upaction")).click();
+			Thread.sleep(3000);
+			driver.findElement(By.xpath("//input[@value='网络地址']")).click();
+			Thread.sleep(3000);
+			driver.findElement(By.id("imgSrc")).clear();
+			Thread.sleep(3000);
+			driver.findElement(By.id("imgSrc"))
+					.sendKeys(
+							"http://192.168.2.185/img/static/memento/online/book_banner.png");
+			Thread.sleep(3000);
+
+			driver.findElement(By.xpath("//input[@value='网络地址']")).click();
+
+			Thread.sleep(6000);
+			driver.findElement(By.xpath("//input[@value='确定']")).click();
+
+			Thread.sleep(3000);
+			driver.findElement(By.xpath("(//button[@type='button'])[2]"))
+					.click();
+			Thread.sleep(3000);
+			driver.findElement(By.cssSelector("button.aui_state_highlight"))
+					.click();
+			Thread.sleep(3000);
+			driver.findElement(By.cssSelector("canvas")).click();
+			Thread.sleep(3000);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 
 		try {
 			// 调用增加留言方法
-			// addMessage(driver);
+			addMessage(driver);
 			Thread.sleep(3000);
 		} catch (Exception e) {
 
@@ -47,7 +64,7 @@ public class MyPageCase {
 
 		try {
 			// 调用增加想说方法
-			 addSay(driver);
+			addSay(driver);
 			Thread.sleep(3000);
 		} catch (Exception e) {
 
@@ -60,10 +77,10 @@ public class MyPageCase {
 		driver.findElement(By.cssSelector("input.btnCss03.pageSave")).click();
 
 		if (yb.getName().endsWith(classname)) {
-			Thread.sleep(3000);
 			// 刷新页面
 			driver.navigate().refresh();
 			Thread.sleep(3000);
+
 			// 获取投票父类元素
 			WebElement elementMessage = driver.findElement(By
 					.id("itemContainer"));
@@ -76,6 +93,7 @@ public class MyPageCase {
 			submitButton.get(4).click();
 
 		} else {
+			Thread.sleep(3000);
 			// 刷新页面
 			driver.navigate().refresh();
 			Thread.sleep(3000);
@@ -94,34 +112,25 @@ public class MyPageCase {
 
 	}
 
-	// 执行exe文件上传照片
-	@Test
-	public static void openExe() {
-		Runtime rn = Runtime.getRuntime();
-		Process p = null;
-		try {
-			p = rn.exec("\"D:/Workspaces/YB_Books/files/upfile.exe\"");
-		} catch (Exception e) {
-			System.out.println("Error exec!");
-		}
-	}
-
 	// 增加三张小图
 	@Test
 	public void addThreePhoto(WebDriver driver) {
 
-		System.out.println("============addThreePhoto()方法===============");
+		System.out
+				.println("============addThreePhoto()方法======================");
 
 		// 点击上传第一张小图
 		try {
 			driver.findElement(By.cssSelector("#imgMask1 > p > img.upaction"))
 					.click();
 			Thread.sleep(3000);
-			tailoringPhoto(driver);
-			// 点击图片上的确定按钮
-			driver.findElement(By.cssSelector("div.progress > div > div"))
-					.click();
+			selectPhoto(driver);
+			// 文本框输入路径
+			driver.findElement(By.id("imgSrc"))
+					.sendKeys(
+							"http://192.168.2.185/img/static/memento/cover/book3_img1.png");
 			Thread.sleep(3000);
+			tailoringPhoto(driver);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -132,11 +141,13 @@ public class MyPageCase {
 			driver.findElement(By.cssSelector("#imgMask2 > p > img.upaction"))
 					.click();
 			Thread.sleep(3000);
-			tailoringPhoto(driver);
-			// 点击图片上的确定按钮
-			driver.findElement(By.cssSelector("div.progress > div > div"))
-					.click();
+			selectPhoto(driver);
+			// 文本框输入路径
+			driver.findElement(By.id("imgSrc"))
+					.sendKeys(
+							"http://192.168.2.185/img/static/memento/cover/book3_img2.png");
 			Thread.sleep(3000);
+			tailoringPhoto(driver);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -147,11 +158,13 @@ public class MyPageCase {
 			driver.findElement(By.cssSelector("#imgMask3 > p > img.upaction"))
 					.click();
 			Thread.sleep(3000);
-			tailoringPhoto(driver);
-			// 点击图片上的确定按钮
-			driver.findElement(By.cssSelector("div.progress > div > div"))
-					.click();
+			selectPhoto(driver);
+			// 文本框输入路径
+			driver.findElement(By.id("imgSrc"))
+					.sendKeys(
+							"http://192.168.2.185/img/static/memento/accessory/book4_img2.png");
 			Thread.sleep(3000);
+			tailoringPhoto(driver);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -159,17 +172,40 @@ public class MyPageCase {
 
 	}
 
+	// 选择网络地址上传
+	@Test
+	public void selectPhoto(WebDriver driver) {
+
+		System.out.println("======进入selectPhoto()方法=======");
+
+		try {
+			// 点击网络地址
+			driver.findElement(By.xpath("//input[@value='网络地址']")).click();
+			Thread.sleep(3000);
+			// 清空文本框
+			driver.findElement(By.id("imgSrc")).clear();
+			Thread.sleep(3000);
+		} catch (Exception e) {
+			e.printStackTrace();
+			selectPhoto(driver);
+		}
+	}
+
 	// 使用图片
 	@Test
 	public void tailoringPhoto(WebDriver driver) throws Exception {
 
 		System.out.println("======进入tailoringPhoto()方法=======");
+		// 失去文本框焦点
+		driver.findElement(By.xpath("//input[@value='网络地址']")).click();
+		// loseFocus(driver);
+		//
+		Thread.sleep(6000);
 
-		// 点击本地上传
-		driver.findElement(By.id("loaclFile")).click();
-		Thread.sleep(3000);
-		// 好传照片
-		openExe();
+		// 点击确定按钮上传图片
+		// driver.findElement(By.cssSelector("#imgSure > input.btnCss05")).click();
+		driver.findElement(By.xpath("//input[@value='确定']")).click();
+		// driver.findElement(By.xpath("id('imgSure')/x:input[1]")).click();
 		Thread.sleep(3000);
 		// 点击取消按钮取消裁剪图片
 		driver.findElement(By.xpath("(//button[@type='button'])[2]")).click();
@@ -178,7 +214,9 @@ public class MyPageCase {
 		driver.findElement(By.cssSelector("button.aui_state_highlight"))
 				.click();
 		Thread.sleep(3000);
-
+		// 点击图片上的确定按钮
+		driver.findElement(By.cssSelector("div.progress > div > div")).click();
+		Thread.sleep(3000);
 	}
 
 	/**

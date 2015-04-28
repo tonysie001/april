@@ -1,5 +1,8 @@
 package com.soul.cases;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -25,7 +28,9 @@ public class CreateBooksCase {
 		Thread.sleep(1000);
 		driver.findElement(By.id("groupName")).sendKeys("myClass");
 		Thread.sleep(1000);
-		driver.findElement(By.id("bookName")).sendKeys("myBook");
+//		driver.findElement(By.id("bookName")).sendKeys("myBook");
+		driver.findElement(By.id("bookName")).sendKeys(time());
+
 		Thread.sleep(1000);
 		WebElement text1 = driver.findElement(By.id("time"));
 		if (driver instanceof JavascriptExecutor) {
@@ -49,4 +54,10 @@ public class CreateBooksCase {
 		String code = driver.findElement(By.className("color2")).getText();
 		return code;
 	}
+	
+	public static String time(){ 
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+		return df.format(new Date());// new Date()为获取当前系统时间
+		}
+
 }

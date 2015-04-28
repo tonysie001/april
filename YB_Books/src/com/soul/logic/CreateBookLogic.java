@@ -16,7 +16,6 @@ import com.soul.cases.CreateVoteCase;
 import com.soul.cases.LoginCase;
 import com.soul.cases.MessageCase;
 import com.soul.cases.MyPageCase;
-import com.soul.cases.OperationBrowser;
 import com.soul.cases.PhotoCase;
 import com.soul.cases.SayCase;
 import com.soul.cases.SubmitBookCase;
@@ -25,8 +24,6 @@ import com.soul.entity.YBEntity;
 
 public class CreateBookLogic {
 
-	// 实例化操作浏览器对象
-	OperationBrowser browser = new OperationBrowser();
 	// 实例化登录对象
 	LoginCase log = new LoginCase();
 	// 实例化创建新书册对象
@@ -60,7 +57,7 @@ public class CreateBookLogic {
 	String username = null;
 
 	/**
-	 * 1、班长登录 2、班长创建新书册 3、拿到新书册邀请码 4、创建新的投票 5、添加活动页 6、制作活动页并提交7、注销登录
+	 * 1、班长登录 2、班长创建新书册 3、拿到新书册邀请码 4、创建新的投票 5、注销登录
 	 * 
 	 * @param driver
 	 * @param list
@@ -98,10 +95,6 @@ public class CreateBookLogic {
 
 					// 班长创建新投票方法
 					createVote.testCreateVote(driver, yb);
-					// 班长添加活动页模板方法
-					addActivities.testAddActivities(driver);
-					// 班长创建活动页对象方法
-					createActivities.testCreateaAtivities(driver);
 
 					// 注销方法
 					log.testLogout(driver);
@@ -264,11 +257,13 @@ public class CreateBookLogic {
 
 			}
 		}
-		System.out.println("个人书页制作完成时间：" + new Date(System.currentTimeMillis()));
+		System.out
+				.println("个人书页制作完成时间：" + new Date(System.currentTimeMillis()));
 	}
 
 	/**
-	 * 1、班长登录 2、打开创建的新书册 3、增加投票页 4、制作投票页 5、制作全景照片 6、提交未提交书页 7、提交书册 8、注销登录
+	 * 1、班长登录 2、打开创建的新书册 3、添加活动页 4、制作活动页并提交 5、增加投票页 6、制作投票页 7、制作全景照片 8、提交未提交书页
+	 * 9、提交书册10、注销登录
 	 * 
 	 * @param driver
 	 * @param list
@@ -297,6 +292,12 @@ public class CreateBookLogic {
 
 					// 调用打开创建新书册方法
 					addbook.testOpenCreateBook(driver);
+
+					// 班长添加活动页模板方法
+					addActivities.testAddActivities(driver);
+
+					// 班长创建活动页对象方法
+					createActivities.testCreateaAtivities(driver);
 
 					// 班长增加投票页方法
 					addVotes.testAddVotes(driver);
