@@ -16,6 +16,7 @@ import com.soul.cases.CreateVoteCase;
 import com.soul.cases.LoginCase;
 import com.soul.cases.MessageCase;
 import com.soul.cases.MyPageCase;
+import com.soul.cases.OperationBrowser;
 import com.soul.cases.PhotoCase;
 import com.soul.cases.SayCase;
 import com.soul.cases.SubmitBookCase;
@@ -24,6 +25,8 @@ import com.soul.entity.YBEntity;
 
 public class CreateBookLogic {
 
+	// 实例化操作浏览器对象
+	OperationBrowser browser = new OperationBrowser();
 	// 实例化登录对象
 	LoginCase log = new LoginCase();
 	// 实例化创建新书册对象
@@ -262,8 +265,8 @@ public class CreateBookLogic {
 	}
 
 	/**
-	 * 1、班长登录 2、打开创建的新书册 3、添加活动页 4、制作活动页并提交 5、增加投票页 6、制作投票页 7、制作全景照片 8、提交未提交书页
-	 * 9、提交书册10、注销登录
+	 * 1、班长登录 2、打开创建的新书册 3、添加活动页 4、制作活动页并提交5、增加投票页 6、制作投票页 7、制作全景照片 8、提交未提交书页
+	 * 9、提交书册 10、注销登录
 	 * 
 	 * @param driver
 	 * @param list
@@ -294,8 +297,8 @@ public class CreateBookLogic {
 					addbook.testOpenCreateBook(driver);
 
 					// 班长添加活动页模板方法
-					addActivities.testAddActivities(driver);
 
+					addActivities.testAddActivities(driver);
 					// 班长创建活动页对象方法
 					createActivities.testCreateaAtivities(driver);
 
