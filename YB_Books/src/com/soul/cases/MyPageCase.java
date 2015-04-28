@@ -17,6 +17,7 @@ public class MyPageCase {
 			throws InterruptedException {
 
 		System.out.println("======进入testCreateMyPage()方法=======");
+		System.out.println("当前个人书页为："+yb.getUsername());
 
 		Thread.sleep(3000);
 		// 单击个人书页
@@ -26,30 +27,35 @@ public class MyPageCase {
 		// 从相册上传照片（顶部大图）
 		try {
 			driver.findElement(By.cssSelector("img.upaction")).click();
-			Thread.sleep(3000);
+			Thread.sleep(1000);
 			driver.findElement(By.xpath("//input[@value='网络地址']")).click();
-			Thread.sleep(3000);
+			Thread.sleep(1000);
 			driver.findElement(By.id("imgSrc")).clear();
-			Thread.sleep(3000);
+			Thread.sleep(1000);
 			driver.findElement(By.id("imgSrc"))
 					.sendKeys(
 							"http://192.168.2.185/img/static/memento/online/book_banner.png");
-			Thread.sleep(3000);
+			Thread.sleep(1000);
 
 			driver.findElement(By.xpath("//input[@value='网络地址']")).click();
 
-			Thread.sleep(6000);
-			driver.findElement(By.xpath("//input[@value='确定']")).click();
+			Thread.sleep(1000);
+			if(yb.getUsername().equals(classname)){
+				driver.findElement(By.xpath("//input[@value='确定']")).click();
+			}else{
+				driver.findElement(By.xpath(".//*[@id='imgSure']/input[1]")).click();
+			}			
+			
 
-			Thread.sleep(3000);
+			Thread.sleep(1000);
 			driver.findElement(By.xpath("(//button[@type='button'])[2]"))
 					.click();
-			Thread.sleep(3000);
+			Thread.sleep(1000);
 			driver.findElement(By.cssSelector("button.aui_state_highlight"))
 					.click();
-			Thread.sleep(3000);
+			Thread.sleep(1000);
 			driver.findElement(By.cssSelector("canvas")).click();
-			Thread.sleep(3000);
+			Thread.sleep(1000);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -198,9 +204,7 @@ public class MyPageCase {
 		System.out.println("======进入tailoringPhoto()方法=======");
 		// 失去文本框焦点
 		driver.findElement(By.xpath("//input[@value='网络地址']")).click();
-		// loseFocus(driver);
-		//
-		Thread.sleep(6000);
+		Thread.sleep(1000);
 
 		// 点击确定按钮上传图片
 		// driver.findElement(By.cssSelector("#imgSure > input.btnCss05")).click();

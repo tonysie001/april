@@ -27,7 +27,6 @@ public class MessageCase {
 			// 遍历二维数组
 			for (int j = 1; j < arr.length; j++) {
 				
-				String[] arr1 = arr[j];
 				yb.setId(Integer.parseInt(arr[j][0]));
 				yb.setUsername(arr[j][1]);
 				yb.setPassword(arr[j][2]);

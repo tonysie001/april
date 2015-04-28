@@ -58,10 +58,10 @@ public class SayCase {
 
 	@Test
 	public void testCreateMySay(WebDriver driver) throws Exception {
-		Thread.sleep(500);
+		Thread.sleep(1000);
 		// 点击我也说
 		driver.findElement(By.linkText("我也说")).click();
-		Thread.sleep(500);
+		Thread.sleep(1000);
 		// 清空文本框信息
 		driver.findElement(By.cssSelector("textarea.speak.isayinput")).clear();
 	}
