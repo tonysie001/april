@@ -33,15 +33,15 @@ public class Test {
 		browser.beforeMethod(driver);
 
 		// 班长创建新书
-//		logic.createBook(driver, list, Common.CLASS_NAME);
+		logic.createBook(driver, list, Common.CLASS_NAME);
 		// 50学生加入新书
-//		logic.addBook(driver, list, Common.CLASS_NAME);
+		logic.addBook(driver, list, Common.CLASS_NAME);
 		// 50学生发表想说、投票
 		logic.addMyBookText(driver, list, Common.CLASS_NAME);
 		// 50学生制作个人书页
-//		logic.createMyBook(driver, list, Common.CLASS_NAME);
+		logic.createMyBook(driver, list, Common.CLASS_NAME);
 		// 班长提交书册
-//		logic.submitBook(driver, list, Common.CLASS_NAME);
+		logic.submitBook(driver, list, Common.CLASS_NAME);
 
 		// 关闭浏览器
 		browser.afterMethod(driver);
