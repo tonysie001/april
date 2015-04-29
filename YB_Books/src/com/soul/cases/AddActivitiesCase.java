@@ -19,7 +19,7 @@ public class AddActivitiesCase {
 				.click();
 		// 循环添加4个默认模板
 		Thread.sleep(3000);
-		for (int i = 0; i < 4; i++) {
+		for (int i = 0; i < 9; i++) {
 			driver.findElement(By.linkText("添加页面")).click();
 			driver.findElement(
 					By.xpath("html/body/div[1]/div/table/tbody/tr[2]/td[2]/div/table/tbody/tr[3]/td/div/button[2]"))

@@ -17,71 +17,48 @@ public class MyPageCase {
 			throws InterruptedException {
 
 		System.out.println("======进入testCreateMyPage()方法=======");
-		System.out.println("当前个人书页为："+yb.getUsername());
+		System.out.println("当前个人书页为：" + yb.getUsername());
 
 		Thread.sleep(3000);
 		// 单击个人书页
 		driver.findElement(By.className("watermark2")).click();
 		Thread.sleep(3000);
 
-		// 从相册上传照片（顶部大图）
+		// 上传照片（顶部大图）
 		try {
-			driver.findElement(By.cssSelector("img.upaction")).click();
-			Thread.sleep(1000);
-			driver.findElement(By.xpath("//input[@value='网络地址']")).click();
-			Thread.sleep(1000);
-			driver.findElement(By.id("imgSrc")).clear();
-			Thread.sleep(1000);
-			driver.findElement(By.id("imgSrc"))
-					.sendKeys(
-							"http://192.168.2.185/img/static/memento/online/book_banner.png");
-			Thread.sleep(1000);
-
-			driver.findElement(By.xpath("//input[@value='网络地址']")).click();
-
-			Thread.sleep(1000);
-			if(yb.getUsername().equals(classname)){
-				driver.findElement(By.xpath("//input[@value='确定']")).click();
-			}else{
-				driver.findElement(By.xpath(".//*[@id='imgSure']/input[1]")).click();
-			}			
-			
-
-			Thread.sleep(1000);
-			driver.findElement(By.xpath("(//button[@type='button'])[2]"))
-					.click();
-			Thread.sleep(1000);
-			driver.findElement(By.cssSelector("button.aui_state_highlight"))
-					.click();
-			Thread.sleep(1000);
-			driver.findElement(By.cssSelector("canvas")).click();
-			Thread.sleep(1000);
+			addBigPhoto(driver, classname, yb);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
+		// 调用增加留言方法
 		try {
-			// 调用增加留言方法
 			addMessage(driver);
 			Thread.sleep(3000);
 		} catch (Exception e) {
-
+			e.printStackTrace();
 		}
 
+		// 调用增加想说方法
 		try {
-			// 调用增加想说方法
 			addSay(driver);
 			Thread.sleep(3000);
 		} catch (Exception e) {
-
+			e.printStackTrace();
 		}
 
-		// 从相册上传照片（底部三张小图）
-		addThreePhoto(driver);
+		// 上传照片（底部三张小图）
+		try {
+			for(int i=1; i<4 ;i++){
+				addThreePhoto(driver,i);	
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 
 		// 点击保存按钮
 		driver.findElement(By.cssSelector("input.btnCss03.pageSave")).click();
-
+		Thread.sleep(3000);
 		if (yb.getName().endsWith(classname)) {
 			// 刷新页面
 			driver.navigate().refresh();
@@ -107,8 +84,10 @@ public class MyPageCase {
 			// 点击提交按钮
 			driver.findElement(By.cssSelector("input.btnCss02.submitPage.fr"))
 					.click();
+
 		}
 
+		Thread.sleep(500);
 		// 点击确定按钮
 		driver.findElement(By.cssSelector("button.aui_state_highlight"))
 				.click();
@@ -118,109 +97,65 @@ public class MyPageCase {
 
 	}
 
+	public void addBigPhoto(WebDriver driver, String classname, YBEntity yb)
+			throws InterruptedException {
+		System.out.println("======进入addBigPhoto()方法=======");
+		Thread.sleep(1000);
+		driver.findElement(By.cssSelector("img.upaction")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//input[@value='网络地址']")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.id("imgSrc")).clear();
+		Thread.sleep(1000);
+		driver.findElement(By.id("imgSrc"))
+				.sendKeys(
+						"http://192.168.2.185/img/static/memento/online/book_banner.png");
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//input[@value='网络地址']")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//input[@value='确定']")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("(//button[@type='button'])[2]")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.cssSelector("button.aui_state_highlight"))
+				.click();
+		Thread.sleep(1000);
+		driver.findElement(By.cssSelector("canvas")).click();
+		Thread.sleep(1000);
+	}
+
 	// 增加三张小图
 	@Test
-	public void addThreePhoto(WebDriver driver) {
+	public void addThreePhoto(WebDriver driver,int i) throws InterruptedException {
 
 		System.out
 				.println("============addThreePhoto()方法======================");
-
-		// 点击上传第一张小图
-		try {
-			driver.findElement(By.cssSelector("#imgMask1 > p > img.upaction"))
-					.click();
-			Thread.sleep(3000);
-			selectPhoto(driver);
-			// 文本框输入路径
-			driver.findElement(By.id("imgSrc"))
-					.sendKeys(
-							"http://192.168.2.185/img/static/memento/cover/book3_img1.png");
-			Thread.sleep(3000);
-			tailoringPhoto(driver);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-		// 点击上传第二张小图
-		try {
-			driver.findElement(By.cssSelector("#imgMask2 > p > img.upaction"))
-					.click();
-			Thread.sleep(3000);
-			selectPhoto(driver);
-			// 文本框输入路径
-			driver.findElement(By.id("imgSrc"))
-					.sendKeys(
-							"http://192.168.2.185/img/static/memento/cover/book3_img2.png");
-			Thread.sleep(3000);
-			tailoringPhoto(driver);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-		// 点击上传第三张小图
-		try {
-			driver.findElement(By.cssSelector("#imgMask3 > p > img.upaction"))
-					.click();
-			Thread.sleep(3000);
-			selectPhoto(driver);
-			// 文本框输入路径
-			driver.findElement(By.id("imgSrc"))
-					.sendKeys(
-							"http://192.168.2.185/img/static/memento/accessory/book4_img2.png");
-			Thread.sleep(3000);
-			tailoringPhoto(driver);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-	}
-
-	// 选择网络地址上传
-	@Test
-	public void selectPhoto(WebDriver driver) {
-
-		System.out.println("======进入selectPhoto()方法=======");
-
-		try {
-			// 点击网络地址
-			driver.findElement(By.xpath("//input[@value='网络地址']")).click();
-			Thread.sleep(3000);
-			// 清空文本框
-			driver.findElement(By.id("imgSrc")).clear();
-			Thread.sleep(3000);
-		} catch (Exception e) {
-			e.printStackTrace();
-			selectPhoto(driver);
-		}
-	}
-
-	// 使用图片
-	@Test
-	public void tailoringPhoto(WebDriver driver) throws Exception {
-
-		System.out.println("======进入tailoringPhoto()方法=======");
-		// 失去文本框焦点
+		//单击上传图片小按钮
+		driver.findElement(By.cssSelector("#imgMask"+i+" > p > img.upaction"))
+		.click();
+		Thread.sleep(1000);
+		//单击网络上传
 		driver.findElement(By.xpath("//input[@value='网络地址']")).click();
 		Thread.sleep(1000);
-
-		// 点击确定按钮上传图片
-		// driver.findElement(By.cssSelector("#imgSure > input.btnCss05")).click();
-		driver.findElement(By.xpath("//input[@value='确定']")).click();
-		// driver.findElement(By.xpath("id('imgSure')/x:input[1]")).click();
-		Thread.sleep(3000);
-		// 点击取消按钮取消裁剪图片
-		driver.findElement(By.xpath("(//button[@type='button'])[2]")).click();
-		Thread.sleep(3000);
-		// 点击确定按钮确定使用图片
-		driver.findElement(By.cssSelector("button.aui_state_highlight"))
+		//输入网络地址
+		driver.findElement(By.id("imgSrc"))
+				.sendKeys(
+						"http://192.168.2.185/img/static/memento/online/book_banner.png");
+		Thread.sleep(1000);
+		//单击网络地址
+		driver.findElement(By.xpath(".//*[@id='popupDiv']/div/div[2]/input[3]"))
 				.click();
-		Thread.sleep(3000);
-		// 点击图片上的确定按钮
+		Thread.sleep(1000);
+		//单击确定上传按钮
+		driver.findElement(By.xpath(".//*[@id='imgSure']/input[1]")).click();
+//		 driver.findElement(By.cssSelector("#imgSure > input.btnCss05")).click();
+		Thread.sleep(1000);
+		//单击取消剪裁按钮
+		driver.findElement(By.xpath("(//button[@type='button'])[2]")).click();
+		Thread.sleep(1000);
+		//单击图片上确定按钮
 		driver.findElement(By.cssSelector("div.progress > div > div")).click();
-		Thread.sleep(3000);
+		Thread.sleep(1000);
 	}
 
 	/**
