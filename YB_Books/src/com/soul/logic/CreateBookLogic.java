@@ -201,10 +201,18 @@ public class CreateBookLogic {
 				}
 
 				// 调用此刻想说方法
-				sayCase.testCreateSay(driver, yb);
+				try {
+					sayCase.testCreateSay(driver, yb);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
 
 				// 参与投票方法
-				voteCase.testCreateVote(driver);
+				try {
+					voteCase.testCreateVote(driver);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
 
 				// 上传照片方法
 				// photo.testCreatePhoto(driver);
@@ -253,7 +261,12 @@ public class CreateBookLogic {
 				}
 
 				// 调用制作个人书页方法
-				myPage.testCreateMyPage(driver, yb, classname);
+
+				try {
+					myPage.testCreateMyPage(driver, yb, classname);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
 
 				// 调用注销方法
 				log.testLogout(driver);
@@ -297,25 +310,53 @@ public class CreateBookLogic {
 					addbook.testOpenCreateBook(driver);
 
 					// 班长添加活动页模板方法
+					try {
+						addActivities.testAddActivities(driver);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
 
-					addActivities.testAddActivities(driver);
 					// 班长创建活动页对象方法
-					createActivities.testCreateaAtivities(driver);
+					try {
+						createActivities.testCreateaAtivities(driver);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
 
 					// 班长增加投票页方法
-					addVotes.testAddVotes(driver);
+					try {
+						addVotes.testAddVotes(driver);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
 
 					// 制作提交投票页方法
-					addVotes.testCreateVote(driver);
+					try {
+						addVotes.testCreateVote(driver);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
 
 					// 制作全景照片方法
-					bigPhoto.testCreateBigPhoto(driver);
+					try {
+						bigPhoto.testCreateBigPhoto(driver);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
 
 					// 班长提交其他未提交页方法
-					submitBook.testSubimitOthers(driver);
+					try {
+						submitBook.testSubimitOthers(driver);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
 
 					// 提交书册方法
-					submitBook.testSubmitBook(driver);
+					try {
+						submitBook.testSubmitBook(driver);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
 
 					// 注销方法
 					log.testLogout(driver);
