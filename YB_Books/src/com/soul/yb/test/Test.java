@@ -19,7 +19,7 @@ public class Test {
 		// 实例化driver对象
 		WebDriver driver = new FirefoxDriver();
 		//设置隐式等待
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		// 实例化读取EXCEL对象
 		File file = new File(Common.YB_MESSAGE_PATH);
 		// 实例化登录对象集合
@@ -29,6 +29,9 @@ public class Test {
 		// 实例化创建新书逻辑类
 		CreateBookLogic logic = new CreateBookLogic();
 
+		for(int i =1 ;i < 4 ; i++){
+			System.out.println("第"+i+"次创建新书");
+		
 		// 打开浏览器
 		browser.beforeMethod(driver);
 
@@ -45,6 +48,8 @@ public class Test {
 
 		// 关闭浏览器
 		browser.afterMethod(driver);
+		Thread.sleep(6000);		
+		}
 
 	}
 }
