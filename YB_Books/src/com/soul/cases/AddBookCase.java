@@ -79,8 +79,8 @@ public class AddBookCase {
 		driver.findElement(By.linkText("我的书库")).click();
 		Thread.sleep(3000);
 		// 点击刚创建的新书册（上方无参与书册）
-//		driver.findElement(By.xpath(".//*[@id='frameContent']/div/ul/li[1]/div[2]/a/img")).click();
+		driver.findElement(By.xpath(".//*[@id='frameContent']/div/ul/li[1]/div[2]/a/img")).click();
 		//点击刚创建的新书册（上方有参与书册）
-		driver.findElement(By.xpath(".//*[@id='frameContent']/div/ul[2]/li[1]/div[2]/a/img")).click();
+//		driver.findElement(By.xpath(".//*[@id='frameContent']/div/ul[2]/li[1]/div[2]/a/img")).click();
 	}
 }
