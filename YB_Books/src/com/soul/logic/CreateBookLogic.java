@@ -17,7 +17,6 @@ import com.soul.cases.LoginCase;
 import com.soul.cases.MessageCase;
 import com.soul.cases.MyPageCase;
 import com.soul.cases.OperationBrowser;
-import com.soul.cases.PhotoCase;
 import com.soul.cases.SayCase;
 import com.soul.cases.SubmitBookCase;
 import com.soul.cases.VoteCase;
@@ -46,7 +45,6 @@ public class CreateBookLogic {
 	// 实例化参与 投票对象
 	VoteCase voteCase = new VoteCase();
 	// 实例化上传照片对象
-	PhotoCase photo = new PhotoCase();
 	// 实例化制作个人书页对象
 	MyPageCase myPage = new MyPageCase();
 	// 实使化班长增加投票页对象
@@ -138,7 +136,13 @@ public class CreateBookLogic {
 					log.testLogin(driver, yb);
 
 					// 调用加入新书册方法
-					addbook.testMyBook(driver, code);
+					try{
+						addbook.testMyBook(driver, code);	
+					}catch (Exception e){
+						e.printStackTrace();
+						log.testLogin(driver, yb);
+					}
+					
 
 					// 调用注销方法
 					log.testLogout(driver);

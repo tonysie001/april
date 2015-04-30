@@ -12,7 +12,7 @@ public class Common {
 	
 	public static final String BASE_URL = "http://192.168.2.185";
 	
-	public static final String CLASS_NAME = "soulTest451";
+	public static final String CLASS_NAME = "ybtest1";
 
 //	public static final String UP_FILE_EXE = FILES_PATH + "upfile.exe";
 
