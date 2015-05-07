@@ -23,8 +23,8 @@ public class LoginDataProvider {
             Object[][] o = new Object[][] {};
 
             // 取用例数据集d1Test的全部数据(excel数据源)
-            if (m.getName().equals("testLogin")) {
-                return new BaseExcelData().getData("Login", "Login.xls");
+            if (m.getName().equals("com.cases.testLogin")) {
+                return new BaseExcelData().getData("Login", "Login.xls",1,1);
             }   
             return o;
         }
