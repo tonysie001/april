@@ -2,6 +2,8 @@ package com.common;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
@@ -64,6 +66,11 @@ public class CommonElements {
 	public int testRandom(int i) {
 		int random = (int) (i * Math.random() + 1);
 		return random;
+	}
+	
+	public String time() {
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");// 设置日期格式
+		return df.format(new Date());// new Date()为获取当前系统时间
 	}
 
 }

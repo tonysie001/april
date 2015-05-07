@@ -381,12 +381,10 @@ public class BasicElements {
 	 * @param tagName
 	 * @return buttons
 	 */
-	public List<WebElement> findSelect(String parentName, String tagName) {
+	public List<WebElement> findSelect(By by, String tagName) {
 		WebElement element = null;
 		List<WebElement> buttons = null;
-		if (this.isElementExist(By.name(parentName))) {
-			element = driver.findElement(By.name(parentName));
-		}
+		element = driver.findElement(by);
 		if (this.isElementExist(By.name(tagName))) {
 			buttons = element.findElements(By.name(tagName));
 		}

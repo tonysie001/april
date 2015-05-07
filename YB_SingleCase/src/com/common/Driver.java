@@ -4,7 +4,6 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.MissingResourceException;
 import java.util.Properties;
-import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -21,11 +20,10 @@ import org.openqa.selenium.remote.DesiredCapabilities;
  */
 public class Driver {
 
-	//IE类型
+	// IE类型
 	public static String type = getPropertyString("BROWSER_TYPE");
-	//项目URL
-	public static String url = getPropertyString("BASE_URL");
-	//定义静态driver
+
+	// 定义静态driver
 	static WebDriver driver;
 
 	/**
@@ -52,7 +50,7 @@ public class Driver {
 	}
 
 	/**
-	 * 返回driver值
+	 * 返回静态代码块WebDriver值
 	 * 
 	 * @return driver
 	 */
@@ -89,45 +87,5 @@ public class Driver {
 			e.printStackTrace();
 		}
 		return result;
-	}
-
-	/**
-	 * 浏览器打开指定url
-	 * 
-	 * @param url
-	 */
-	public void openBrowser() {
-		getDriver().get(url);
-		getDriver().manage().window().maximize();
-		//设置隐式等待
-		getDriver().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-	}
-
-	/**
-	 * 浏览器退出
-	 */
-	public void closeBrowser() {
-		getDriver().quit();
-	}
-
-	/**
-	 * 浏览器刷新
-	 */
-	public void refresh() {
-		getDriver().navigate().refresh();
-	}
-
-	/**
-	 * 浏览器后退
-	 */
-	public void back() {
-		getDriver().navigate().back();
-	}
-
-	/**
-	 * 浏览器前进
-	 */
-	public void forward() {
-		getDriver().navigate().forward();
 	}
 }
