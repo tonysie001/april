@@ -16,7 +16,7 @@ import org.openqa.selenium.WebElement;
  * @version 1.0
  */
 public class BasicElements {
-	
+
 	Driver d = new Driver();
 	WebDriver driver = d.getDriver();
 
@@ -382,12 +382,8 @@ public class BasicElements {
 	 * @return buttons
 	 */
 	public List<WebElement> findSelect(By by, String tagName) {
-		WebElement element = null;
-		List<WebElement> buttons = null;
-		element = driver.findElement(by);
-		if (this.isElementExist(By.name(tagName))) {
-			buttons = element.findElements(By.name(tagName));
-		}
+		WebElement element = driver.findElement(by);
+		List<WebElement> buttons = element.findElements(By.tagName(tagName));
 		return buttons;
 	}
 
@@ -406,7 +402,7 @@ public class BasicElements {
 	 * @param by
 	 * @return
 	 */
-	public String getWebText(By by) {
+	public String getText(By by) {
 		try {
 			return driver.findElement(by).getText();
 		} catch (NoSuchElementException e) {

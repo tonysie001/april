@@ -65,6 +65,7 @@ public class CommonElements {
 	 */
 	public int testRandom(int i) {
 		int random = (int) (i * Math.random() + 1);
+//		System.out.println("int random = "+random);
 		return random;
 	}
 	
