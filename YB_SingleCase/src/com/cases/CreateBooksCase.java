@@ -13,10 +13,10 @@ public class CreateBooksCase {
 
 	// 创建新书册
 	@Test
-	public void testCreateBooks(WebDriver driver) throws Exception {
+	public void testCreateBooks() throws Exception {
 	
 		System.out.println("======进入testCreateBooks()方法=======");
-
+		//点击我的新书
 		element.findByLinkTextClick("我的书库");
 		// driver.findElement(By.linkText("我的书库")).click();
 		// Thread.sleep(1000);
@@ -54,15 +54,19 @@ public class CreateBooksCase {
 		// Thread.sleep(1000);
 		element.findByIDClick("intoBookBtn");
 		// driver.findElement(By.id("intoBookBtn")).click();
+		element.findByCssClick("input.btnCss01.bookManagement");
 	}
 
-//	public String testCode(WebDriver driver) throws Exception {
-//
-//		System.out.println("======进入testCode()方法=======");
-//		Thread.sleep(500);
+	@Test
+	public String testCode() throws Exception {
+
+		System.out.println("======进入testCode()方法=======");
+		Thread.sleep(500);
 //		driver.findElement(By.cssSelector("input.btnCss01.bookManagement"))
 //				.click();
+		element.findByCssClick("input.btnCss01.bookManagement");
 //		String code = driver.findElement(By.className("color2")).getText();
-//		return code;
-//	}
+		String code = element.getText(By.className("color2"));
+		return code;
+	}
 }

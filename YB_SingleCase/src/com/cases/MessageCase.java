@@ -1,9 +1,5 @@
 package com.cases;
 
-import java.util.List;
-
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Test;
 
 import com.common.BasicElements;
@@ -11,7 +7,7 @@ import com.common.BasicElements;
 public class MessageCase {
 	BasicElements element = new BasicElements();
 	// 给小伙伴留言
-	@Test
+	@Test(dataProvider = "createMessageDate", dataProviderClass = ExcelDataProvider.class)
 	public void testCreateMessage(String username,String messagename,String message) throws Exception {
 
 		System.out.println("======进入testCreateMessage()方法=======");

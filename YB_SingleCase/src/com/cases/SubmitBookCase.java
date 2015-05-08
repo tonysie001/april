@@ -1,24 +1,22 @@
 package com.cases;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Test;
 
 import com.common.BasicElements;
-import com.common.BrowserElements;
 
 public class SubmitBookCase {
 	BasicElements element = new BasicElements();
 	//班长提交其他未提交页
 	@Test
-	public void testSubimitOthers(WebDriver driver) throws Exception {
+	public void testSubimit1Others() throws Exception {
 		
 		System.out.println("======进入testSubimitOthers()方法=======");
 		//在首页点击我的书页
 		// driver.findElement(By.xpath(".//*[@id='summaryNav']/a")).click();
 //		driver.findElement(By.xpath(".//*[@id='pageStatus_chzn']/a/span"))
 //				.click();
+		element.findByXpathClick(".//*[@id='summaryNav']/a");
 		element.findByXpathClick(".//*[@id='pageStatus_chzn']/a/span");
 		
 //		driver.findElement(By.xpath(".//*[@id='pageStatus_chzn_o_2']")).click();
@@ -40,9 +38,9 @@ public class SubmitBookCase {
 		}
 	}
 
-	//班长提交Note及书册册
+	//班长提交Note及书册
 	@Test
-	public void testSubmitBook(WebDriver driver) throws Exception {
+	public void testSubmit2Book() throws Exception {
 		
 		
 		System.out.println("======进入testSubmitBook()方法=======");

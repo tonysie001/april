@@ -13,7 +13,7 @@ public class MyPageCase {
 	BasicElements element = new BasicElements();
 	BrowserElements browser = new BrowserElements();
 	// 制作个人书页
-	@Test
+	@Test(dataProvider = "createMyBookPageDate", dataProviderClass = ExcelDataProvider.class)
 	public void testCreateMyPage(String username,String classname)
 			throws InterruptedException {
 

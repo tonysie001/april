@@ -3,6 +3,7 @@ package com.cases;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Test;
+import org.testng.annotations.Parameters;
 
 import com.common.BasicElements;
 
@@ -11,7 +12,7 @@ public class AddBookCase {
 
 	// 进入我的书库
 	@Test
-	public void testMyBook(WebDriver driver, String code)
+	public void test1MyBook()
 			throws InterruptedException {
 		System.out.println("======进入testMyBook()方法=======");
 			// 点击我的书库
@@ -21,8 +22,9 @@ public class AddBookCase {
 	}
 
 	// 加入新书
+	@Parameters({"code"})
 	@Test
-	public void testAddBook(WebDriver driver, String code) throws Exception {
+	public void test2AddBook(String code) throws Exception {
 		Thread.sleep(3000);
 
 		System.out.println("======进入testAddBook()方法=======");
@@ -50,7 +52,7 @@ public class AddBookCase {
 
 	// 打开参与新书
 	@Test
-	public void testOpenBook(WebDriver driver) throws Exception {
+	public void testOpenBook() throws Exception {
 
 		System.out.println("======进入testOpenBook()方法=======");
 
@@ -60,15 +62,16 @@ public class AddBookCase {
 		Thread.sleep(3000);
 
 		// 点击刚加入的新书册
-		driver.findElement(
-				By.cssSelector("html body div#frameContent.content div.perrig_home ul.booklist li.mypage div a img"))
-				.click();
+//		driver.findElement(
+//				By.cssSelector("html body div#frameContent.content div.perrig_home ul.booklist li.mypage div a img"))
+//				.click();
+		element.findByCssClick("html body div#frameContent.content div.perrig_home ul.booklist li.mypage div a img");
 		Thread.sleep(3000);
 	}
 
 	// 打开创建新书
 	@Test
-	public void testOpenCreateBook(WebDriver driver) throws Exception {
+	public void testOpenCreateBook() throws Exception {
 		
 		System.out.println("======进入testOpenCreateBook()方法=======");
 		

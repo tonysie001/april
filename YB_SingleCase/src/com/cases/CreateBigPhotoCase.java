@@ -13,6 +13,7 @@ public class CreateBigPhotoCase {
 		System.out.println("======进入testCreateBigPhoto()方法=======");
 		
 		// driver.findElement(By.xpath(".//*[@id='summaryNav']/a")).click();//在首页点击我的书页
+		element.findByXpathClick(".//*[@id='summaryNav']/a");
 //		driver.findElement(By.xpath(".//*[@id='pageType_chzn']/a/span"))
 //				.click();
 		// 通过下拉框选择类型为全景照片

@@ -17,7 +17,7 @@ public class VoteCase {
 	
 	// 投票
 	@Test
-	public void testCreateVote(WebDriver driver) throws Exception {
+	public void testCreateVote() throws Exception {
 
 		System.out.println("======进入testCreateVote()方法=======");
 

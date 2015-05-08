@@ -1,7 +1,5 @@
 package com.cases;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Test;
 
 import com.common.BasicElements;
@@ -12,7 +10,7 @@ public class SayCase {
 	BasicElements element = new BasicElements();
 	BrowserElements browser = new BrowserElements();
 	// 此刻想说
-	@Test
+	@Test(dataProvider = "createSayDate", dataProviderClass = ExcelDataProvider.class)
 	public void testCreateSay(String say1,String say2,String say3) throws Exception {
 
 		System.out.println("======进入testCreateSay()方法=======");
