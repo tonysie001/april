@@ -80,6 +80,7 @@ public class BasicElements {
 	 */
 	public void findByIDClick(String id) {
 		WebElement element = null;
+		System.out.println("findByLinkTextClick = " +this.isElementExist(By.id(id)));
 		if (this.isElementExist(By.id(id))) {
 			element = driver.findElement(By.id(id));
 		}

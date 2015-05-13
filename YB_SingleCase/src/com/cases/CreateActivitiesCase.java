@@ -14,10 +14,11 @@ public class CreateActivitiesCase {
 			throws InterruptedException {
 
 		System.out.println("======进入testCreateaAtivities()方法=======");
-		Thread.sleep(15000);
-		element.findByLinkTextClick("制作书页");
+//		Thread.sleep(3000);
+//		element.findByLinkTextClick("制作书页");
 //		driver.findElement(By.xpath(".//*[@id='summaryNav']/a")).click();
 //		  driver.findElement(By.linkText("我的书页")).click();
+		Thread.sleep(3000);
 		  element.findByLinkTextClick("我的书页");
 //		driver.findElement(By.xpath(".//*[@id='pageStatus_chzn']/a/span"))
 //		.click();
@@ -75,7 +76,7 @@ public class CreateActivitiesCase {
 				try {
 					System.out.println("===testCreateaAtivities== j = " + j);
 //					driver.findElement(By.id("imgMask" + j)).click();
-					element.findByIDClick("imgMask");
+					element.findByIDClick("imgMask"+j);
 					Thread.sleep(2000);
 //					driver.findElement(
 //							By.xpath(".//*[@id='popupDiv']/div/div[2]/input[3]"))

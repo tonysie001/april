@@ -22,5 +22,11 @@ public class BrowserCase {
 	public void closeBrowser() {
 		System.out.println("¹Ø±Õä¯ÀÀÆ÷Ê±¼ä£º" + new Date(System.currentTimeMillis()));
 		browser.closeBrowser();
+		try {
+			Thread.sleep(6000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }

@@ -1,11 +1,15 @@
 package com.cases;
 
+import java.util.Set;
+
 import org.openqa.selenium.By;
+import org.openqa.selenium.Cookie;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Test;
 
 import com.common.BasicElements;
 import com.common.CommonElements;
+import com.common.Driver;
 
 public class CreateBooksCase {
 	BasicElements element = new BasicElements();
@@ -13,7 +17,7 @@ public class CreateBooksCase {
 
 	// 创建新书册
 	@Test
-	public void testCreateBooks() throws Exception {
+	public void test1CreateBooks() throws Exception {
 	
 		System.out.println("======进入testCreateBooks()方法=======");
 		//点击我的新书
@@ -58,15 +62,18 @@ public class CreateBooksCase {
 	}
 
 	@Test
-	public String testCode() throws Exception {
+	public String  test2Code() throws Exception {
 
-		System.out.println("======进入testCode()方法=======");
+		System.out.println("======进入testCode()方法=======" );
 		Thread.sleep(500);
 //		driver.findElement(By.cssSelector("input.btnCss01.bookManagement"))
 //				.click();
-		element.findByCssClick("input.btnCss01.bookManagement");
+//		element.findByCssClick("input.btnCss01.bookManagement");
 //		String code = driver.findElement(By.className("color2")).getText();
 		String code = element.getText(By.className("color2"));
+		System.out.println("code = " + code);
+
 		return code;
-	}
+	}	
+	
 }

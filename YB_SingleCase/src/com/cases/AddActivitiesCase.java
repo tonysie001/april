@@ -31,7 +31,7 @@ public class AddActivitiesCase {
 		element.findByXpathClick(".//*[@id='bookManagefream']/div[2]/div[1]/section/div/ul/li[7]");
 		// 添加默认模板
 		Thread.sleep(3000);
-		for (int i = 0; i < 9; i++) {
+		for (int i = 0; i < 4; i++) {
 			//点击添加页面按钮
 //			driver.findElement(By.linkText("添加页面")).click();
 			element.findByLinkTextClick("添加页面");
@@ -41,10 +41,10 @@ public class AddActivitiesCase {
 //					.click();
 			element.findByXpathClick("html/body/div[1]/div/table/tbody/tr[2]/td[2]/div/table/tbody/tr[3]/td/div/button[2]");
 		}
-		Thread.sleep(500);
+		Thread.sleep(1000);
 		//点击制作书页
 //		driver.findElement(By.xpath(".//*[@id='topBar']/div/ul/li[1]/a"))
 //				.click();
-		element.findByXpathClick(".//*[@id='topBar']/div/ul/li[1]/a]");
+//		element.findByXpathClick(".//*[@id='topBar']/div/ul/li[1]/a]");
 	}
 }

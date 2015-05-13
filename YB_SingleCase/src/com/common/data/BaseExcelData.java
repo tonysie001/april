@@ -3,6 +3,8 @@ package com.common.data;
 import java.io.*;
 import java.util.ArrayList;
 
+
+
 import jxl.*;
 import jxl.read.biff.BiffException;
 
@@ -14,7 +16,7 @@ import jxl.read.biff.BiffException;
  * @Date 2015.05.05
  */
 
-public class BaseExcelData implements IData {
+public  class BaseExcelData implements IData {
 	// 根目录files（存放excel文件）
 	String defaultPath = "files/";
 

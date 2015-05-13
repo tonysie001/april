@@ -15,6 +15,7 @@ public class AddVotesCase {
 //		driver.findElement(By.xpath(".//*[@id='infori']/h1/input[1]")).click();
 		element.findByXpathClick(".//*[@id='infori']/h1/input[1]");				
 //		driver.findElement(By.linkText("页面管理")).click();
+		Thread.sleep(3000);
 		element.findByLinkTextClick("页面管理");
 		Thread.sleep(2000);
 //		driver.findElement(

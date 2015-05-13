@@ -1,19 +1,18 @@
 package com.cases;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.testng.annotations.Test;
 import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
 
 import com.common.BasicElements;
 
 public class AddBookCase {
 	BasicElements element = new BasicElements();
+	CreateBooksCase book = new CreateBooksCase();
+	
 
 	// 进入我的书库
 	@Test
-	public void test1MyBook()
-			throws InterruptedException {
+	public void testMyBook()throws Exception {
 		System.out.println("======进入testMyBook()方法=======");
 			// 点击我的书库
 		
@@ -24,10 +23,11 @@ public class AddBookCase {
 	// 加入新书
 	@Parameters({"code"})
 	@Test
-	public void test2AddBook(String code) throws Exception {
+	public void testAddBook(String code) throws Exception {
 		Thread.sleep(3000);
 
 		System.out.println("======进入testAddBook()方法=======");
+		System.out.println("code == " +  code);
 		// 点击加入新书册
 //		driver.findElement(By.xpath("//*[@id='addBook']")).click();
 		element.findByXpathClick("//*[@id='addBook']");
@@ -40,6 +40,7 @@ public class AddBookCase {
 
 		// 输入邀请码
 //		driver.findElement(By.id("keyword")).sendKeys(code);
+	
 		element.findByIDSendKeys("keyword", code);
 		Thread.sleep(500);
 
