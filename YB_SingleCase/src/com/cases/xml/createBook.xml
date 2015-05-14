@@ -29,6 +29,7 @@
 				<methods>
 					<include name="test1CreateBooks"></include>		
 					<include name="test2Code"></include>
+					<include name="test3code"></include>
 				</methods>
 			</class>
 		</classes>

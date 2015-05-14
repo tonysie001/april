@@ -66,6 +66,28 @@ public class ExcelDataProvider {
 		}
 		return o;
 	}
+	
+	
+	// 班长加书数据源
+		@DataProvider(name = "testAddCodeData")
+		public static Object[][] testAddCode(Method m)
+				throws FileNotFoundException {
+
+			System.out.println("==========testAddCodeExcel==============");
+			// 通过反射获得函数名称，可以为多个测试方法提供数据驱动
+			Object[][] o = new Object[][] {};
+			// 取用例数据集d1Test的全部数据(excel数据源)
+
+			if (m.getName().equals("testAddBook")) {
+				return new BaseExcelData().getData("sheet1", "Code.xls");
+			}
+
+			return o;
+		}
+	
+	
+	
+	
 
 	// 创建想说数据源
 	@DataProvider(name = "createSayDate")
@@ -130,6 +152,22 @@ public class ExcelDataProvider {
 		// 取用例数据集d1Test的全部数据(excel数据源)
 		if (m.getName().equals("testCreateMyPage")) {
 			return new BaseExcelData().getData("CreateMyPage", "YB_Data.xls");
+		}
+		return o;
+	}
+	
+	//创建代金券数据源
+	@DataProvider(name = "createVouchersDate")
+	public static Object[][] createVouchersDate(Method m)
+			throws FileNotFoundException {
+
+		System.out.println("==========createVouchersDate==============");
+		// 通过反射获得函数名称，可以为多个测试方法提供数据驱动
+		Object[][] o = new Object[][] {};
+
+		// 取用例数据集d1Test的全部数据(excel数据源)
+		if (m.getName().equals("testSubmitOrder")) {
+			return new BaseExcelData().getData("Vouchers", "YB_Data.xls");
 		}
 		return o;
 	}

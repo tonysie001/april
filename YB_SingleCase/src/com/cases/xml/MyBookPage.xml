@@ -36,7 +36,7 @@
 	</test>
 	
 	
-	<!-- 班长制作个人书页 -->
+	<!-- 学生制作个人书页 -->
 	<test name="classCreateMyBookPage">
 		<classes>
 			<class name="com.cases.MyPageCase">

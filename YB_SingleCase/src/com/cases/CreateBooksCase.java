@@ -1,19 +1,22 @@
 package com.cases;
 
-import java.util.Set;
+import java.io.File;
+
+import jxl.Workbook;
+import jxl.write.Label;
+import jxl.write.WritableSheet;
+import jxl.write.WritableWorkbook;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.Cookie;
-import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Test;
 
 import com.common.BasicElements;
 import com.common.CommonElements;
-import com.common.Driver;
 
 public class CreateBooksCase {
 	BasicElements element = new BasicElements();
 	CommonElements comment = new CommonElements();
+	String code = null;
 
 	// 创建新书册
 	@Test
@@ -58,22 +61,39 @@ public class CreateBooksCase {
 		// Thread.sleep(1000);
 		element.findByIDClick("intoBookBtn");
 		// driver.findElement(By.id("intoBookBtn")).click();
-		element.findByCssClick("input.btnCss01.bookManagement");
+//		element.findByCssClick("input.btnCss01.bookManagement");
 	}
 
 	@Test
-	public String  test2Code() throws Exception {
+	public void  test2Code() throws Exception {
 
 		System.out.println("======进入testCode()方法=======" );
 		Thread.sleep(500);
 //		driver.findElement(By.cssSelector("input.btnCss01.bookManagement"))
 //				.click();
-//		element.findByCssClick("input.btnCss01.bookManagement");
+		element.findByCssClick("input.btnCss01.bookManagement");
 //		String code = driver.findElement(By.className("color2")).getText();
-		String code = element.getText(By.className("color2"));
+		code = element.getText(By.className("color2"));
 		System.out.println("code = " + code);
+		
+		// 打开文件
+		WritableWorkbook book = Workbook
+				.createWorkbook(new File("files/Code.xls"));
+		// 生成名为“sheet1”的工作表，参数0表示这是第一页
+		WritableSheet sheet = book.createSheet("sheet1", 0);
+		// 在Label对象的构造子中指名单元格位置是第一列第一行(0,0),单元格内容为string
+		Label label = new Label(0, 0, "code");
+	
+		// 将定义好的单元格添加到工作表中
+		sheet.addCell(label);
+		// 生成一个保存数字的单元格,单元格位置是第二列，第一行，单元格的内容为1234.5
+//		String string = new String(0, 1, "df97dfdf97df98df9d");
+		Label labe2 = new Label(0, 1, code);
+		sheet.addCell(labe2);
 
-		return code;
+		// 写入数据并关闭文件
+		book.write();
+		book.close();
 	}	
 	
 }

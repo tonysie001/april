@@ -37,7 +37,7 @@
 			</class>
 		</classes>
 	</test>
-	<!-- 班长增加投票页模板 并创建投票页 -->
+	<!-- 班长增加创建全景照片 -->
 	<test name="classBigPhoto">
 		<classes>
 			<class name="com.cases.CreateBigPhotoCase">

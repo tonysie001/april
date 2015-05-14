@@ -21,8 +21,8 @@ public class AddBookCase {
 	}
 
 	// 加入新书
-	@Parameters({"code"})
-	@Test
+//	@Parameters({"code"})
+	@Test(dataProvider = "testAddCodeData", dataProviderClass = ExcelDataProvider.class)
 	public void testAddBook(String code) throws Exception {
 		Thread.sleep(3000);
 

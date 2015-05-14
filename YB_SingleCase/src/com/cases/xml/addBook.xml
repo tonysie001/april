@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="YB">
-<parameter name="code" value="3e66e348561"></parameter>
 <!-- 打开浏览器 -->
 	<test name="open">
 		<classes>
