@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="YB" allow-return-values="true">
+	<!-- 打开浏览器 -->
+	<test name="open">
+		<classes>
+			<class name="com.soulinfo.cases.BrowserCase">
+				<methods>
+					<include name="openBrowser"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<!-- 班长登录｜注销 -->
+	<test name="clalogin">
+		<classes>
+			<class name="com.soulinfo.cases.LoginCase">
+				<methods>
+					<include name="testClaLogin"></include>
+					<include name="testLogout"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<!-- 关闭浏览器 -->
+	<test name="close">
+		<classes>
+			<class name="com.soulinfo.cases.BrowserCase">
+				<methods>
+					<include name="closeBrowser"></include>
+				</methods>
+			</class>
+		</classes>
+	</test>
+</suite> 
