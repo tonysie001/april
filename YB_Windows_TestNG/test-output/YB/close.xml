@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="close" failures="0" tests="1" time="0.653" errors="0">
+  <properties/>
+  <testcase name="closeBrowser" time="0.651" classname="com.soulinfo.cases.BrowserCase"/>
+</testsuite>
