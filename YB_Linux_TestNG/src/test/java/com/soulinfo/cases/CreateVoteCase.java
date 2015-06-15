@@ -53,7 +53,7 @@ public class CreateVoteCase {
 			
 			element.findByIDClick("createVote");
 
-			common.getScreen("createvote");
+//			common.getScreen("createvote");
 			
 		}
 		element.findByLinkTextClick("返回首页");

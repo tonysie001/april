@@ -46,16 +46,16 @@ public class CommonElements {
 	 * 
 	 * @param filepath
 	 */
-	public void getScreen(String filename) {
-		File screenShotFile = ((TakesScreenshot) driver)
-				.getScreenshotAs(OutputType.FILE);
-		try {
-			FileUtils.copyFile(screenShotFile, new File(SCREENURL + getdata()+"\\"+ gettime() +filename
-					+ EXTENSION));
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
+//	public void getScreen(String filename) {
+//		File screenShotFile = ((TakesScreenshot) driver)
+//				.getScreenshotAs(OutputType.FILE);
+//		try {
+//			FileUtils.copyFile(screenShotFile, new File(SCREENURL + getdata()+"\\"+ gettime() +filename
+//					+ EXTENSION));
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
+//	}
 
 	/**
 	 * 产生1-i随机整数

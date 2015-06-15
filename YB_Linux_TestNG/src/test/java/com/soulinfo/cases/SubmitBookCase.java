@@ -32,14 +32,14 @@ public class SubmitBookCase {
 //		element.findByLinkTextClick("我的书页");
 
 		// 循环两次用来提交第二页内容
-//		for (int i = 0; i < 2; i++) {
+		for (int i = 0; i < 2; i++) {
 			// 通过下拉列表选择未提交数据
 			element.findByXpathClick(".//*[@id='pageStatus_chzn']/a/span");
 			element.findByXpathClick(".//*[@id='pageStatus_chzn_o_2']");
 			Thread.sleep(500);
 			List<WebElement> submit = element.findSelect(
 					By.id("itemContainer"), "li");
-			common.getScreen("submitdata"+submit.size());
+//			common.getScreen("submitdata"+submit.size());
 			
 			for (int j = 0; j < submit.size(); j++) {
 				// 点击提交按钮
@@ -48,9 +48,9 @@ public class SubmitBookCase {
 				element.findByCssClick(".aui_state_highlight");
 				Thread.sleep(2000);
 			}
-//			browser.refresh();
-//			Thread.sleep(3000);
-//		}
+			browser.refresh();
+			Thread.sleep(3000);
+		}
 	}
 
 	/**

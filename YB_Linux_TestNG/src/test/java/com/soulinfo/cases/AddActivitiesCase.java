@@ -45,7 +45,7 @@ public class AddActivitiesCase {
 			// 点击默认模板按钮
 			element.findByXpathClick("html/body/div[1]/div/table/tbody/tr[2]/td[2]/div/table/tbody/tr[3]/td/div/button[2]");
 
-			common.getScreen("addActivities"+i);
+//			common.getScreen("addActivities"+i);
 			logger.info("添加第" + i + "张集体活动模板成功");
 		}
 	}

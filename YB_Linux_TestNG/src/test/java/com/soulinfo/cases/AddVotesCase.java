@@ -39,7 +39,7 @@ public class AddVotesCase {
 			element.findByLinkTextClick("添加页面");
 			element.findByXpathClick("html/body/div[1]/div/table/tbody/tr[2]/td[2]/div/table/tbody/tr[3]/td/div/button[2]");
 			
-			common.getScreen("addvote"+i);
+//			common.getScreen("addvote"+i);
 			
 			logger.info("班长增第" + i + "张投票页成功");
 		}
@@ -81,7 +81,7 @@ public class AddVotesCase {
 			element.findByXpathClick("//div[@id='pageinfo']/div/ul/li[5]/div/div/a/img");
 			testSure();
 
-			common.getScreen("createvote"+i);
+//			common.getScreen("createvote"+i);
 			
 			// 点击保存按钮
 			element.findByCssClick("input.btnCss03.pageSave");
@@ -103,7 +103,7 @@ public class AddVotesCase {
 			element.findByCssClick("button.aui_state_highlight");
 			
 			Thread.sleep(1000);		
-			common.getScreen("createvote"+i+"submit");
+//			common.getScreen("createvote"+i+"submit");
 			browser.refresh();
 			Thread.sleep(2000);
 

@@ -51,7 +51,7 @@ public class CreateActivitiesCase {
 			element.findByCssClick(".aui_state_highlight");
 			element.findByCssClick(".progress>div>canvas");
 
-			for (int j = 1; j < 4; j++)// 循环添加小图片
+			for (int j = 1; j < 2; j++)// 循环添加小图片
 			{
 				// 点击上传小图按钮
 				element.findByIDClick("imgMask" + j);
@@ -83,19 +83,20 @@ public class CreateActivitiesCase {
 					".//*[@id='pageinfo']/div/div/div[2]/div[1]/div[4]/div/p",
 					text);
 
-			common.getScreen("createActivities"+i);
+//			common.getScreen("createActivities"+i);
 			
 			// 点击保存按钮
 			element.findByCssClick("input.btnCss03.pageSave");
 			
-			Thread.sleep(2000);
-			browser.refresh();
-			Thread.sleep(2000);
+//			Thread.sleep(2000);
+//			browser.refresh();
+			Thread.sleep(3000);
 
 			// 点击下拉列表选择集体活动
 			element.findByCssClick("#pageType_chzn > a.chzn-single > div > b");
+			Thread.sleep(2000);
 			element.findByIDClick("pageType_chzn_o_15");
-			Thread.sleep(1000);
+			Thread.sleep(3000);
 
 //			// 点击下拉列表选择集体活动第二次（因为当前状态为正在生成，需等待时间过后重新选择）
 //			element.findByCssClick("#pageType_chzn > a.chzn-single > div > b");
@@ -107,10 +108,10 @@ public class CreateActivitiesCase {
 			//点击确定按钮
 			element.findByCssClick("button.aui_state_highlight");
 			
-			Thread.sleep(2000);
-			common.getScreen("createActivities"+i+"submit");						
-			browser.refresh();
-			Thread.sleep(2000);
+//			Thread.sleep(2000);
+//			common.getScreen("createActivities"+i+"submit");						
+//			browser.refresh();
+//			Thread.sleep(2000);
 			
 			
 			logger.info("增加第" + i + "张集体活动页提交完成");

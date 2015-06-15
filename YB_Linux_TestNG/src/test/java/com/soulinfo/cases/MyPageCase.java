@@ -63,11 +63,11 @@ public class MyPageCase {
 		addBigPhoto(classname);
 
 		// 调用增加留言方法
-		try {
-			addMessage();
-		} catch (Exception e) {
-			logger.error("增加留言内容失败" + e.getLocalizedMessage());
-		}
+//		try {
+//			addMessage();
+//		} catch (Exception e) {
+//			logger.error("增加留言内容失败" + e.getLocalizedMessage());
+//		}
 
 		// 调用增加想说方法
 		try {
@@ -77,11 +77,11 @@ public class MyPageCase {
 		}
 
 		// 上传照片（底部三张小图）
-		for (int i = 1; i < 4; i++) {
-			addThreePhoto(i);
-		}
+//		for (int i = 1; i < 4; i++) {
+//			addThreePhoto(i);
+//		}
 		
-		common.getScreen("mypage");
+//		common.getScreen("mypage");
 
 		// 点击保存按钮
 		element.findByCssClick("input.btnCss03.pageSave");
@@ -96,7 +96,7 @@ public class MyPageCase {
 		// 点击确定按钮
 		element.findByCssClick("button.aui_state_highlight");
 		
-		common.getScreen("mypagesubmit");
+//		common.getScreen("mypagesubmit");
 
 		logger.info("班长" + username + "制作 个人书页完成");
 		
@@ -199,7 +199,7 @@ public class MyPageCase {
 		if (checkboxSay.size() == 0) {
 			logger.info("没有可选择的想说内容，内容为：" + checkboxSay.size());
 		} else {
-			for (int i = 0; i < 2; i++) {
+			for (int i = 0; i < 1; i++) {
 				checkboxSay.get(i).click();
 			}
 		}

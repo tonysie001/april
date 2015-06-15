@@ -44,7 +44,7 @@ public class CreateBigPhotoCase {
 		element.findByCssClick(".aui_close");
 		element.findByCssClick(".aui_state_highlight");
 
-		common.getScreen("bigphoto");	
+//		common.getScreen("bigphoto");	
 		
 		element.findByCssClick(".progress>div>canvas");
 		element.findByXpathClick(".//*[@id='frameContent']/div[2]/div[2]/input[3]");

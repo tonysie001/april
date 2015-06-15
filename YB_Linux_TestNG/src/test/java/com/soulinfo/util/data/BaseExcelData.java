@@ -18,7 +18,7 @@ import jxl.read.biff.BiffException;
 
 public  class BaseExcelData implements IData {
 	// 根目录files（存放excel文件）
-	String defaultPath = "files/";
+	String defaultPath = "src/test/resource/";
 
 	// 返回Excel文件里所有内容
 	public Object[][] getData(String caseName, String dataFile) {
