@@ -3,11 +3,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.soulinfo</groupId>
-	<artifactId>yearbook2.1</artifactId>
+	<artifactId>yb_linux_testng</artifactId>
 	<version>1.0</version>
 	<packaging>jar</packaging>
 
-	<name>yearbook2.1</name>
+	<name>yb_linux_testng</name>
 	<url>http://maven.apache.org</url>
 
 	<properties>
