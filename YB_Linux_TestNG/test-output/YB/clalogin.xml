@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="clalogin" failures="0" tests="2" time="5.259" errors="0">
-  <properties/>
-  <testcase name="testClaLogin" time="3.814" classname="com.soulinfo.cases.LoginCase"/>
-  <testcase name="testLogout" time="1.178" classname="com.soulinfo.cases.LoginCase"/>
-</testsuite>
