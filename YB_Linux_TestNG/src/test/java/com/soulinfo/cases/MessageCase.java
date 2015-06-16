@@ -34,7 +34,7 @@ public class MessageCase {
 		
 		//点击要留言名字
 		element.findByLinkTextClick(messagename);
-		common.getScreen("messageuserpage");
+//		common.getScreen("messageuserpage");
 
 		//点击给他/她写赠言
 		element.findByCssClick("input.onbtnCss03");
@@ -50,7 +50,7 @@ public class MessageCase {
 		//点击发表按钮
 		element.findByIDClick("addCommentBut");
 		
-		common.getScreen("messagesuccess");
+//		common.getScreen("messagesuccess");
 
 		element.findByIDClick("groupBtn");
 

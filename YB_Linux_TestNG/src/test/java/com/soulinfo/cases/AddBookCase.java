@@ -35,7 +35,7 @@ public class AddBookCase {
 		// 输入邀请码
 		element.findByIDSendKeys("keyword", code);
 		
-		common.getScreen(code);
+//		common.getScreen(code);
 
 		// 点击进入按钮
 		element.findByIDClick("checkBut");
@@ -54,7 +54,7 @@ public class AddBookCase {
 		// 点击我的书库
 		element.findByLinkTextClick("我的书库");
 
-		common.getScreen("stumybook");
+//		common.getScreen("stumybook");
 		
 		// 点击刚加入的新书册
 //		element.findByCssClick("html body div#frameContent.content div.perrig_home ul.booklist li.mypage div a img");
@@ -75,7 +75,7 @@ public class AddBookCase {
 		// 点击我的书库
 		element.findByLinkTextClick("我的书库");
 		
-		common.getScreen("clamybook");
+//		common.getScreen("clamybook");
 
 		Thread.sleep(3000);
 		// 点击刚创建的新书册（上方无参与书册）

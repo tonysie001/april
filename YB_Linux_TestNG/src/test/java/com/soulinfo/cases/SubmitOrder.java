@@ -77,12 +77,12 @@ public class SubmitOrder {
 		element.findByIDClick("commitVoucher");
 		Thread.sleep(1000);
 		
-		common.getScreen("pay");
+//		common.getScreen("pay");
 		
 		// 点击付款按钮
 		element.findByIDClick("pay");
 		
-		common.getScreen("address");
+//		common.getScreen("address");
 		
 		// 核对信息点击确定按钮
 		element.findByIDClick("goToPay");
@@ -104,7 +104,7 @@ public class SubmitOrder {
 			WebDriver window = driver.switchTo().window(it.next());
 			System.out.println("New page title is:" + window.getTitle());
 			
-			common.getScreen("paysuccess");
+//			common.getScreen("paysuccess");
 			
 			// 支付成功点击关闭窗口
 			element.findByClassClick("bottom");
@@ -116,7 +116,7 @@ public class SubmitOrder {
 		// 点击已完成支付按钮
 		element.findByIDClick("showOrderId");
 		
-		common.getScreen("ordersubmit");
+//		common.getScreen("ordersubmit");
 
 		logger.info("通过代金券付款成功");
 	}

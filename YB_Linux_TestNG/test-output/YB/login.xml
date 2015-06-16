@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="login" failures="0" tests="1" time="4.034" errors="0">
-  <properties/>
-  <testcase name="testStuLogin" time="3.795" classname="com.soulinfo.cases.LoginCase"/>
-</testsuite>

@@ -35,17 +35,17 @@ public class SayCase {
 		element.findByCssSendKeys("textarea.speak.isayinput", say1);
 		testCreateSayButton(1);
 
-		element.findByLinkTextClick("结束语");
-		testCreateMySay();
-		// 向文本框输入信息
-		element.findByCssSendKeys("textarea.speak.isayinput", say2);
-		testCreateSayButton(2);
-
-		element.findByLinkTextClick("在这个集体中最值得回忆的？");
-		testCreateMySay();
-		// 向文本框输入信息
-		element.findByCssSendKeys("textarea.speak.isayinput", say3);
-		testCreateSayButton(3);
+//		element.findByLinkTextClick("结束语");
+//		testCreateMySay();
+//		// 向文本框输入信息
+//		element.findByCssSendKeys("textarea.speak.isayinput", say2);
+//		testCreateSayButton(2);
+//
+//		element.findByLinkTextClick("在这个集体中最值得回忆的？");
+//		testCreateMySay();
+//		// 向文本框输入信息
+//		element.findByCssSendKeys("textarea.speak.isayinput", say3);
+//		testCreateSayButton(3);
 	}
 
 	@Test
@@ -57,7 +57,7 @@ public class SayCase {
 
 	@Test
 	public void testCreateSayButton(int i) throws InterruptedException {		
-		common.getScreen("say"+i);
+//		common.getScreen("say"+i);
 		element.findByLinkTextClick("确认");
 		logger.info("想说内容发表成功");
 		Thread.sleep(2000);
