@@ -3,11 +3,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.soulinfo</groupId>
-	<artifactId>yb_win_main</artifactId>
-	<version>1.0</version>
+	<artifactId>sure-auto-test</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>yb_win_main</name>
+	<name>sure-auto-test</name>
 	<url>http://maven.apache.org</url>
 
 	<properties>
