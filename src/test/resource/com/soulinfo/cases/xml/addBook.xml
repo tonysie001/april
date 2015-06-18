@@ -46,7 +46,7 @@
 		</classes>
 	</test>
 <!-- 关闭浏览器 -->
-		<test name="close">
+	<test name="close">
 		<classes>
 			<class name="com.soulinfo.cases.BrowserCase">
 				<methods >
